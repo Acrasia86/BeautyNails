@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BeautyNails.Models
+namespace BeautyNails.DTOs
 {
-    public class Product
+    public class ProductDto
     {
-        public int Id { get; set; }
         [Required]
         public string ProductName { get; set; } = string.Empty;
         [Required]
@@ -14,6 +13,5 @@ namespace BeautyNails.Models
 
         [Required]
         public double Price { get; set; }
-      
     }
 }

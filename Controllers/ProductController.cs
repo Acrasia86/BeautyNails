@@ -1,4 +1,6 @@
-﻿using BeautyNails.Data;
+﻿using AutoMapper;
+using BeautyNails.Data;
+using BeautyNails.DTOs;
 using BeautyNails.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,10 +14,12 @@ namespace BeautyNails.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -29,7 +33,7 @@ namespace BeautyNails.Controllers
                 return new NotFoundResult();
             }
 
-            return new OkObjectResult(products);
+            return Ok(products.Select(product => _mapper.Map<ProductDto>(product)));
         }
 
         [HttpGet("{id?}")]
@@ -38,25 +42,28 @@ namespace BeautyNails.Controllers
         {
             var product = await _context.Product.FirstOrDefaultAsync(x => x.Id == id);
 
-            if(product == null)
+            var productMap = _mapper.Map<ProductDto>(product);
+
+            if(productMap == null)
             {
                 return new NotFoundResult();
             }
 
-            return new OkObjectResult(product);
+            return new OkObjectResult(productMap);
         }
 
         [HttpPost]
-        public async Task<ActionResult> PostProduct(Product product)
+        public async Task<ActionResult> PostProduct(ProductDto productDto)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if(product == null)
+            if(productDto == null)
             {
                 return BadRequest("Object was null");
             }
+            var product = _mapper.Map<Product>(productDto);
             await _context.Product.AddAsync(product);
             await _context.SaveChangesAsync();
 
