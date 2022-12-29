@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 namespace BeautyNails.Controllers
 {
@@ -46,7 +47,12 @@ namespace BeautyNails.Controllers
 
             if(productMap == null)
             {
-                return new NotFoundResult();
+                return NotFound("Product not found");
+            }
+
+            if(id < 0)
+            {
+                return BadRequest("Id can't be less then 0");
             }
 
             return new OkObjectResult(productMap);
@@ -68,6 +74,57 @@ namespace BeautyNails.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(product);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteProduct(int id)
+        {
+            var product = _context.Product.FirstOrDefault(x => x.Id == id);
+            if(product == null)
+            {
+                return NotFound("Product not found");
+            }
+            if(id < 0)
+            {
+                return BadRequest("Id can't be less then 0");
+            }
+            _context.Product.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateProduct(int id, ProductDto product)
+        {
+
+            if(product == null)
+            {
+                return BadRequest("Product was null");
+            }
+
+            if(id != product.Id)
+            {
+                return BadRequest("Id not found");
+            }
+
+            if(id < 0)
+            {
+                return BadRequest("Id can't be less then 0");
+            }
+
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var productDto = _mapper.Map<Product>(product);
+
+            _context.Product.Update(productDto);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }
