@@ -10,6 +10,10 @@ namespace BeautyNails.AutoMapperProfiles
         {
             CreateMap<Product, ProductDto>();
             CreateMap<ProductDto, Product>();
+            CreateMap<About, AboutDto>();
+            CreateMap<AboutDto, About>();
+            CreateMap<DaysOpen, DaysOpenDto>();
+            CreateMap<DaysOpenDto, DaysOpen>();
         }
     }
 }

@@ -58,6 +58,7 @@ namespace BeautyNails.Controllers
             return new OkObjectResult(productMap);
         }
 
+
         [HttpPost]
         public async Task<ActionResult> PostProduct(ProductDto productDto)
         {
@@ -119,12 +120,25 @@ namespace BeautyNails.Controllers
             }
 
             var productDto = _mapper.Map<Product>(product);
+            
+            try
+            {
+             _context.Product.Update(productDto);
 
-            _context.Product.Update(productDto);
+             await _context.SaveChangesAsync();
 
-            await _context.SaveChangesAsync();
+               
+             return NoContent();
+             
+               
+            }
+            catch(Exception e)
+            {
+               
+                return StatusCode(500, e.Message);
+            }
 
-            return NoContent();
+           
         }
     }
 }

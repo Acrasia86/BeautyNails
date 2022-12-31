@@ -12,6 +12,7 @@ namespace BeautyNails.Data
         public DbSet<About> About { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Review> Review { get; set; }
+        public DbSet<DaysOpen> DaysOpen { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)

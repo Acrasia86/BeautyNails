@@ -38,15 +38,9 @@ namespace BeautyNails.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ClosingHours")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OpeningHours")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -54,7 +48,7 @@ namespace BeautyNails.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("About", (string)null);
+                    b.ToTable("About");
                 });
 
             modelBuilder.Entity("BeautyNails.Models.AppUser", b =>
@@ -133,22 +127,22 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "c62add6d-5df9-4ab3-8aa0-308272311f8d",
+                            ConcurrencyStamp = "96ab569f-6f68-4593-9526-b9e279993cb9",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJXB+fs7qMr/EINjRORFkdDz0iIbOOWRuhBXqf6vjITxYcNzcyXe2J7W4NAhiz0OEQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ+oInZNQIsRTI3JMuqFMmouSHIUPCcnkIL7qKcb/LvgREn+SOcj2FdFuJAUiBEl3Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "538d6c80-6b2f-4ccd-acf4-3fb045d3c412",
+                            SecurityStamp = "7a1200e1-5b41-4157-bd86-1dbd066a6f4f",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         });
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Person", b =>
+            modelBuilder.Entity("BeautyNails.Models.DaysOpen", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,21 +150,18 @@ namespace BeautyNails.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("AboutId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("DaysAndTimeOpen")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person", (string)null);
+                    b.HasIndex("AboutId");
+
+                    b.ToTable("DaysOpen");
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Product", b =>
@@ -198,7 +189,7 @@ namespace BeautyNails.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product", (string)null);
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Review", b =>
@@ -210,20 +201,17 @@ namespace BeautyNails.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int?>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rating")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Review", (string)null);
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -374,11 +362,11 @@ namespace BeautyNails.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Review", b =>
+            modelBuilder.Entity("BeautyNails.Models.DaysOpen", b =>
                 {
-                    b.HasOne("BeautyNails.Models.Person", null)
-                        .WithMany("Reviews")
-                        .HasForeignKey("PersonId");
+                    b.HasOne("BeautyNails.Models.About", null)
+                        .WithMany("DaysOpen")
+                        .HasForeignKey("AboutId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -432,9 +420,9 @@ namespace BeautyNails.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Person", b =>
+            modelBuilder.Entity("BeautyNails.Models.About", b =>
                 {
-                    b.Navigation("Reviews");
+                    b.Navigation("DaysOpen");
                 });
 #pragma warning restore 612, 618
         }

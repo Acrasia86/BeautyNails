@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221223114343_NewPassword")]
-    partial class NewPassword
+    [Migration("20221231162839_AddedStuff")]
+    partial class AddedStuff
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,15 +40,9 @@ namespace BeautyNails.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ClosingHours")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OpeningHours")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -68,7 +62,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bio")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -76,7 +69,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DisplayName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -137,22 +129,22 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "9ea84225-d861-4ae6-b698-f285f4c2b1d2",
+                            ConcurrencyStamp = "96ab569f-6f68-4593-9526-b9e279993cb9",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED7Qix6wYRYGuSb//FlJvVxVlS/hbQIagfhJMll3lqWv9zzV1H63E7Y/vvmuxlrXuQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ+oInZNQIsRTI3JMuqFMmouSHIUPCcnkIL7qKcb/LvgREn+SOcj2FdFuJAUiBEl3Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9afde616-e3be-4c48-99ff-f27959465e38",
+                            SecurityStamp = "7a1200e1-5b41-4157-bd86-1dbd066a6f4f",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         });
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Person", b =>
+            modelBuilder.Entity("BeautyNails.Models.DaysOpen", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,21 +152,18 @@ namespace BeautyNails.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("AboutId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("DaysAndTimeOpen")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person");
+                    b.HasIndex("AboutId");
+
+                    b.ToTable("DaysOpen");
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Product", b =>
@@ -214,18 +203,15 @@ namespace BeautyNails.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Message")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int?>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rating")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
 
                     b.ToTable("Review");
                 });
@@ -255,6 +241,14 @@ namespace BeautyNails.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -342,6 +336,13 @@ namespace BeautyNails.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "1"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -363,11 +364,11 @@ namespace BeautyNails.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Review", b =>
+            modelBuilder.Entity("BeautyNails.Models.DaysOpen", b =>
                 {
-                    b.HasOne("BeautyNails.Models.Person", null)
-                        .WithMany("Reviews")
-                        .HasForeignKey("PersonId");
+                    b.HasOne("BeautyNails.Models.About", null)
+                        .WithMany("DaysOpen")
+                        .HasForeignKey("AboutId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -421,9 +422,9 @@ namespace BeautyNails.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BeautyNails.Models.Person", b =>
+            modelBuilder.Entity("BeautyNails.Models.About", b =>
                 {
-                    b.Navigation("Reviews");
+                    b.Navigation("DaysOpen");
                 });
 #pragma warning restore 612, 618
         }
