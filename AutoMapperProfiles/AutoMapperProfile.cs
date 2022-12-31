@@ -14,6 +14,8 @@ namespace BeautyNails.AutoMapperProfiles
             CreateMap<AboutDto, About>();
             CreateMap<DaysOpen, DaysOpenDto>();
             CreateMap<DaysOpenDto, DaysOpen>();
+            CreateMap<Review, ReviewDto>();
+            CreateMap<ReviewDto, Review>();
         }
     }
 }

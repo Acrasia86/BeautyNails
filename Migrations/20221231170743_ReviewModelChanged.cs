@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeautyNails.Migrations
 {
-    public partial class AddedStuff : Migration
+    public partial class ReviewModelChanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,28 +32,20 @@ namespace BeautyNails.Migrations
                 name: "OpeningHours",
                 table: "About");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "Rating",
-                table: "Review",
-                type: "int",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "int");
-
             migrationBuilder.AlterColumn<string>(
                 name: "Message",
                 table: "Review",
-                type: "nvarchar(max)",
-                nullable: true,
+                type: "nvarchar(200)",
+                maxLength: 200,
+                nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.AddColumn<string>(
                 name: "UserId",
                 table: "Review",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+                type: "nvarchar(450)",
+                nullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "DisplayName",
@@ -98,7 +90,7 @@ namespace BeautyNails.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bio", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "Blabla", "96ab569f-6f68-4593-9526-b9e279993cb9", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEJ+oInZNQIsRTI3JMuqFMmouSHIUPCcnkIL7qKcb/LvgREn+SOcj2FdFuJAUiBEl3Q==", null, false, "7a1200e1-5b41-4157-bd86-1dbd066a6f4f", false, "Jacob@mail.com" });
+                values: new object[] { "1", 0, "Blabla", "2a1b13e7-e417-485b-a4a7-d2bf8c1b6482", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEJVEoKY2uoRBjDkoL/kJASjTrlzXpoA426wzPZSzRqnBrJXvZs9r37C6xJkbwCuDIg==", null, false, "997ffeca-d053-42a5-abb8-33615e30cb5b", false, "Jacob@mail.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -106,15 +98,35 @@ namespace BeautyNails.Migrations
                 values: new object[] { "1", "1" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Review_UserId",
+                table: "Review",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DaysOpen_AboutId",
                 table: "DaysOpen",
                 column: "AboutId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Review_AspNetUsers_UserId",
+                table: "Review",
+                column: "UserId",
+                principalTable: "AspNetUsers",
+                principalColumn: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Review_AspNetUsers_UserId",
+                table: "Review");
+
             migrationBuilder.DropTable(
                 name: "DaysOpen");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Review_UserId",
+                table: "Review");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
@@ -135,25 +147,14 @@ namespace BeautyNails.Migrations
                 name: "UserId",
                 table: "Review");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "Rating",
-                table: "Review",
-                type: "int",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(int),
-                oldType: "int",
-                oldNullable: true);
-
             migrationBuilder.AlterColumn<string>(
                 name: "Message",
                 table: "Review",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+                oldType: "nvarchar(200)",
+                oldMaxLength: 200);
 
             migrationBuilder.AddColumn<int>(
                 name: "PersonId",

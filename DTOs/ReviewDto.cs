@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using BeautyNails.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace BeautyNails.Models
+namespace BeautyNails.DTOs
 {
-    public class Review
+    public class ReviewDto
     {
         public int Id { get; set; }
         [Required]
