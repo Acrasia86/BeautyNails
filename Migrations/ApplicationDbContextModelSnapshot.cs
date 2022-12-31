@@ -48,7 +48,7 @@ namespace BeautyNails.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("About");
+                    b.ToTable("About", (string)null);
                 });
 
             modelBuilder.Entity("BeautyNails.Models.AppUser", b =>
@@ -161,7 +161,7 @@ namespace BeautyNails.Migrations
 
                     b.HasIndex("AboutId");
 
-                    b.ToTable("DaysOpen");
+                    b.ToTable("DaysOpen", (string)null);
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Product", b =>
@@ -189,7 +189,7 @@ namespace BeautyNails.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Review", b =>
@@ -211,7 +211,7 @@ namespace BeautyNails.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Review");
+                    b.ToTable("Review", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
