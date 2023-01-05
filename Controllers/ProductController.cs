@@ -58,7 +58,7 @@ namespace BeautyNails.Controllers
             return new OkObjectResult(productMap);
         }
 
-
+        
         [HttpPost]
         public async Task<ActionResult> PostProduct(ProductDto productDto)
         {
