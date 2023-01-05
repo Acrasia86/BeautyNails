@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace BeautyNails.Controllers
 {
-   
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -23,12 +23,15 @@ namespace BeautyNails.Controllers
             _userManager = userManager;
             _tokenService = tokenService;
         }
-        [AllowAnonymous]
+     
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
-            if (user == null) return Unauthorized();
+            if (user == null) 
+            {
+                return Unauthorized();
+            } 
             
             var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
@@ -40,7 +43,7 @@ namespace BeautyNails.Controllers
             return Unauthorized();
         }
 
-        [Authorize(Roles = "Admin")]
+    
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
@@ -64,7 +67,7 @@ namespace BeautyNails.Controllers
             return BadRequest("Problem registering user");
         }
 
-        [Authorize]
+        
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {

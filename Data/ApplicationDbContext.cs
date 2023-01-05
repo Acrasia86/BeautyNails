@@ -44,10 +44,31 @@ namespace BeautyNails.Data
                     DisplayName = "Jp"
                 });
 
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "2",
+                UserName = "Aleksandra@mail.com",
+                NormalizedUserName = "ALEKSANDRA@MAIL.COM",
+                Email = "Aleksandra@mail.com",
+                NormalizedEmail = "ALEKSANDRA@MAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = passwordHasher.HashPassword(null, "Password11"),
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                Bio = "Blabla",
+                DisplayName = "Los"
+            });
+
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "1",
                 UserId = "1"
+            });
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "1",
+                UserId = "2"
             });
 
         }
