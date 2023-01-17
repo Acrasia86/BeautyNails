@@ -27,22 +27,26 @@ namespace BeautyNails.Data
              new IdentityRole { Id = "1", Name = "Admin", NormalizedName = "ADMIN", ConcurrencyStamp = null }
              );
 
+            builder.Entity<IdentityRole>().HasData(
+            new IdentityRole { Id = "2", Name = "User", NormalizedName = "USER", ConcurrencyStamp = null }
+            );
+
             var passwordHasher = new PasswordHasher<AppUser>();
-           
-                builder.Entity<AppUser>().HasData(new AppUser
-                {
-                    Id = "1",
-                    UserName = "Jacob@mail.com",
-                    NormalizedUserName = "JACOB@MAIL.COM",
-                    Email = "Jacob@mail.com",
-                    NormalizedEmail = "JACOB@MAIL.COM",
-                    EmailConfirmed = true,
-                    PasswordHash = passwordHasher.HashPassword(null, "Password1!"),
-                    SecurityStamp = Guid.NewGuid().ToString("D"),
-                    ConcurrencyStamp = Guid.NewGuid().ToString("D"),
-                    Bio = "Blabla",
-                    DisplayName = "Jp"
-                });
+
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "1",
+                UserName = "Jacob@mail.com",
+                NormalizedUserName = "JACOB@MAIL.COM",
+                Email = "Jacob@mail.com",
+                NormalizedEmail = "JACOB@MAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = passwordHasher.HashPassword(null, "Password1!"),
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                Bio = "Blabla",
+                DisplayName = "Jp"
+            });
 
             builder.Entity<AppUser>().HasData(new AppUser
             {
@@ -59,6 +63,21 @@ namespace BeautyNails.Data
                 DisplayName = "Los"
             });
 
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "3",
+                UserName = "User@mail.com",
+                NormalizedUserName = "USER@MAIL.COM",
+                Email = "User@mail.com",
+                NormalizedEmail = "USER@MAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = passwordHasher.HashPassword(null, "Password1!"),
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                Bio = "Blabla",
+                DisplayName = "User"
+            });
+
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "1",
@@ -69,6 +88,12 @@ namespace BeautyNails.Data
             {
                 RoleId = "1",
                 UserId = "2"
+            });
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "2",
+                UserId = "3"
             });
 
         }

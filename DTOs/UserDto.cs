@@ -1,4 +1,5 @@
 ﻿using BeautyNails.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BeautyNails.DTOs
 {

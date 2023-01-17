@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221231170743_ReviewModelChanged")]
-    partial class ReviewModelChanged
+    [Migration("20230117132906_New")]
+    partial class New
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,18 +129,36 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "2a1b13e7-e417-485b-a4a7-d2bf8c1b6482",
+                            ConcurrencyStamp = "2098d001-cf3d-4f7e-91dd-7d14cde770e3",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJVEoKY2uoRBjDkoL/kJASjTrlzXpoA426wzPZSzRqnBrJXvZs9r37C6xJkbwCuDIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFa+j5s2x4HEGbe1y0KavAXDjsYPAysErouKJrGYDRS75ebSCzo3xs8p6ZBqlqc5mQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "997ffeca-d053-42a5-abb8-33615e30cb5b",
+                            SecurityStamp = "635064e9-3d25-47fd-9bd2-26801dbecf0d",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            Bio = "Blabla",
+                            ConcurrencyStamp = "3a9efbe1-7409-417a-8f4a-a5bbaf7ab029",
+                            DisplayName = "Los",
+                            Email = "Aleksandra@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ALEKSANDRA@MAIL.COM",
+                            NormalizedUserName = "ALEKSANDRA@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEArhtEkx44lbbht/no/TcHAzJIvOicqK/Rz0KJX1RNyVHvm0fuNtpS/gWHD6ZOkwKQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "841aeb5d-1e3a-47bb-a386-42f1c398597f",
+                            TwoFactorEnabled = false,
+                            UserName = "Aleksandra@mail.com"
                         });
                 });
 
@@ -174,9 +192,8 @@ namespace BeautyNails.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("AvalaibleDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -186,6 +203,10 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeToFinnish")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -308,10 +329,12 @@ namespace BeautyNails.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -346,6 +369,11 @@ namespace BeautyNails.Migrations
                         {
                             UserId = "1",
                             RoleId = "1"
+                        },
+                        new
+                        {
+                            UserId = "2",
+                            RoleId = "1"
                         });
                 });
 
@@ -355,10 +383,12 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

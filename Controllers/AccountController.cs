@@ -1,4 +1,5 @@
-﻿using BeautyNails.DTOs;
+﻿using BeautyNails.Data;
+using BeautyNails.DTOs;
 using BeautyNails.Models;
 using BeautyNails.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -17,13 +18,15 @@ namespace BeautyNails.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly TokenService _tokenService;
+        private readonly ApplicationDbContext _context;
 
-        public AccountController(UserManager<AppUser> userManager, TokenService tokenService)
+        public AccountController(UserManager<AppUser> userManager, TokenService tokenService, ApplicationDbContext context)
         {
             _userManager = userManager;
             _tokenService = tokenService;
+            _context = context;
         }
-     
+
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
@@ -76,8 +79,19 @@ namespace BeautyNails.Controllers
             return CreateUserObject(user);
         }
 
+        [HttpGet("getrole")]
+        public async Task<ActionResult> GetRole()
+        {
+            var userEmail = this.User.FindFirstValue(ClaimTypes.Email);
+            var user = await _userManager.FindByEmailAsync(userEmail);
+            var role = await _userManager.GetRolesAsync(user);
+
+            return Ok(role);
+        }
+
         private UserDto CreateUserObject(AppUser user)
         {
+
             return new UserDto
             {
                 DisplayName = user.DisplayName,
@@ -86,5 +100,6 @@ namespace BeautyNails.Controllers
                 UserName = user.UserName
             };
         }
+
     }
 }

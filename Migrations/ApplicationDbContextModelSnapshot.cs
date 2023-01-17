@@ -127,16 +127,16 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "27e1adb5-af00-4df6-b8c1-13e8638c51eb",
+                            ConcurrencyStamp = "9082a36d-5a00-4109-a05a-826c5ba39121",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDTBgXkv3TSX2ZrQIOn2iFPJLl/YrbX2vdA86CZPDzAzWl41FIC72jm91FLDudh2Yw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG8AVgHsnjGpW2e85VUJ5tyRsMiXNXjTrvOmORyos8s9DeKpA0dttE3NN8T9aVuJ6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35033782-3c43-4cbb-8ff2-716c01d65a48",
+                            SecurityStamp = "e181fbdf-1d4f-45cb-9c69-24def8afc8be",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -145,18 +145,36 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "06e1858a-ee62-4ed9-8622-1ce4bb4f61f5",
+                            ConcurrencyStamp = "78137979-3954-4bde-a08a-1818c441b22c",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEX8X3wCq/I9UcJ4euGa03dx4fGQ4YUOgSjJG4UKTgtwikRT1vcJt1RnXdrV/CQ2mA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK7njVu14xXo0TrAQI5G4WwFlX1MXLCMaJpRtPB7ZjVZDghwusqESvJZw86zKU3lXA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb2d5d15-7227-4490-aab7-8b3839af5cae",
+                            SecurityStamp = "34168041-1e30-425b-ab81-d2bed39259b4",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            AccessFailedCount = 0,
+                            Bio = "Blabla",
+                            ConcurrencyStamp = "bc17a16d-d0db-4312-87dd-603cbd3c57e2",
+                            DisplayName = "User",
+                            Email = "User@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER@MAIL.COM",
+                            NormalizedUserName = "USER@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDJqmbA+3jZOlz93l877nJv/1Qt8QulC2HPvaNWyxPA/mpXsJwXT3romyQD8qKgwXQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "dc217194-7861-4f8b-a198-5897d41b9314",
+                            TwoFactorEnabled = false,
+                            UserName = "User@mail.com"
                         });
                 });
 
@@ -271,6 +289,12 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "User",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -327,10 +351,12 @@ namespace BeautyNails.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -370,6 +396,11 @@ namespace BeautyNails.Migrations
                         {
                             UserId = "2",
                             RoleId = "1"
+                        },
+                        new
+                        {
+                            UserId = "3",
+                            RoleId = "2"
                         });
                 });
 
@@ -379,10 +410,12 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

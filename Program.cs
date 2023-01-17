@@ -4,6 +4,7 @@ using BeautyNails.Models;
 using BeautyNails.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
@@ -44,13 +45,17 @@ builder.Services.AddCors(opt =>
         policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
     });
 });
-builder.Services.AddIdentityCore<AppUser>(opt =>
-{
-    opt.User.RequireUniqueEmail = true;
+//builder.Services.AddIdentityCore<AppUser>(opt =>
+//{
+//    opt.User.RequireUniqueEmail = true;
 
-})
-.AddEntityFrameworkStores<ApplicationDbContext>();
-;
+//})
+//.AddEntityFrameworkStores<ApplicationDbContext>();
+//;
+
+builder.Services.AddDefaultIdentity<AppUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"]));
 
@@ -64,7 +69,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = false,
             ValidateAudience = false
         };
-    });
+    });                                                                                                            
 
 builder.Services.AddScoped<TokenService>();
 
