@@ -79,9 +79,11 @@ namespace BeautyNails.Controllers
             return CreateUserObject(user);
         }
 
+        
         [HttpGet("getrole")]
         public async Task<ActionResult> GetRole()
         {
+           
             var userEmail = this.User.FindFirstValue(ClaimTypes.Email);
             var user = await _userManager.FindByEmailAsync(userEmail);
             var role = await _userManager.GetRolesAsync(user);

@@ -12,6 +12,7 @@ namespace BeautyNails.Models
         public DateTime? AvalaibleDate { get; set; }
         [Required]
         public string TimeToFinnish { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
         [Required]
         public double Price { get; set; }
       
