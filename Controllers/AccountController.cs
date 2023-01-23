@@ -58,7 +58,8 @@ namespace BeautyNails.Controllers
             {
                 DisplayName = registerDto.DisplayName,
                 Email = registerDto.Email,
-                UserName = registerDto.UserName
+                UserName = registerDto.UserName,
+                BirthDay = registerDto.BirthDay
             };
 
             if(user == null)
