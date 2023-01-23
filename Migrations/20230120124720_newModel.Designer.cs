@@ -4,6 +4,7 @@ using BeautyNails.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230120124720_newModel")]
+    partial class newModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +63,6 @@ namespace BeautyNails.Migrations
 
                     b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("BirthDay")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -130,17 +129,16 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 1, 23, 9, 48, 3, 834, DateTimeKind.Local).AddTicks(2701),
-                            ConcurrencyStamp = "2bdfa748-b637-48ef-abbe-2edd285a083d",
+                            ConcurrencyStamp = "fa311644-1c82-42c7-9fe9-cb3bbafe8129",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOeqvUZhdBf4xrABrDVAKbXtLOsJwmDXfOjVmbuQY9PR/GZgUB7kDzul4Imp7EKMVw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFAgbVPQfw4YQ8IxWyMzORzw9AXPLIV9cC3ud8CLOGjDLDxLGRVOEUAAiM8Hgmr9gw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8f257ac6-1acf-4ff2-95b2-272a459d47c9",
+                            SecurityStamp = "74652880-bd70-44ca-b0b5-ba3cc6697cd1",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -149,16 +147,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "6f25ac12-600b-4c15-bc12-51a6ab559170",
+                            ConcurrencyStamp = "7cae6a67-b978-4efd-9bdf-03451b2ce37b",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECgd239mJ4QG3OP1mlh1qUOW3N2FKH5TKVXS1gQQ/VasL9E4l1+ifRU3DRShWkGWsQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAjiYSP3k6t+k4LY5lLfAnEgoT10+YQmPhmB0OiqZqe92FrnjbzBFr3gTSZBWV5XBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "db828982-6617-451e-a963-b98ed47daa52",
+                            SecurityStamp = "8fd9152f-18a2-4753-91e3-853b0a5d6f39",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -167,16 +165,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "4b1a54ed-8d80-4818-aba5-888223268660",
+                            ConcurrencyStamp = "b4637944-4e6d-481b-9773-2347ff23b4fa",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC506Q3tNIz6QY34/G05KS9r5bfc8wPK74Riil12iaSoeR7o11MsrsPeXYBlvZsyrw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK09UcmiBBhIVPjdomOgTI3rf7Me1sh3o6kKQIJDYr5oRKTGCtM0309d3XcXB1Pl5Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "940c780b-6cd9-4b24-9e6e-7507736ebe23",
+                            SecurityStamp = "2a91edd6-fa6c-42b0-8c7c-d4d488d8c05b",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         });
@@ -201,6 +199,9 @@ namespace BeautyNails.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -209,8 +210,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
 
@@ -261,6 +260,9 @@ namespace BeautyNails.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -270,6 +272,8 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Product");
                 });
@@ -470,17 +474,9 @@ namespace BeautyNails.Migrations
 
             modelBuilder.Entity("BeautyNails.Models.Checkout", b =>
                 {
-                    b.HasOne("BeautyNails.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BeautyNails.Models.AppUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });
@@ -490,6 +486,13 @@ namespace BeautyNails.Migrations
                     b.HasOne("BeautyNails.Models.About", null)
                         .WithMany("DaysOpen")
                         .HasForeignKey("AboutId");
+                });
+
+            modelBuilder.Entity("BeautyNails.Models.Product", b =>
+                {
+                    b.HasOne("BeautyNails.Models.Checkout", null)
+                        .WithMany("Products")
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("BeautyNails.Models.Review", b =>
@@ -555,6 +558,11 @@ namespace BeautyNails.Migrations
             modelBuilder.Entity("BeautyNails.Models.About", b =>
                 {
                     b.Navigation("DaysOpen");
+                });
+
+            modelBuilder.Entity("BeautyNails.Models.Checkout", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

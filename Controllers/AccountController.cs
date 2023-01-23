@@ -61,6 +61,11 @@ namespace BeautyNails.Controllers
                 UserName = registerDto.UserName
             };
 
+            if(user == null)
+            {
+                return NotFound();
+            }
+
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if(result.Succeeded)
@@ -75,6 +80,11 @@ namespace BeautyNails.Controllers
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+
+            if(user == null)
+            {
+                return NotFound();
+            }
 
             return CreateUserObject(user);
         }

@@ -13,7 +13,7 @@ namespace BeautyNails.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Review> Review { get; set; }
         public DbSet<DaysOpen> DaysOpen { get; set; }
-
+        public DbSet<Checkout> CheckOut { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)
         {
@@ -45,7 +45,8 @@ namespace BeautyNails.Data
                 SecurityStamp = Guid.NewGuid().ToString("D"),
                 ConcurrencyStamp = Guid.NewGuid().ToString("D"),
                 Bio = "Blabla",
-                DisplayName = "Jp"
+                DisplayName = "Jp",
+                BirthDay = DateTime.Now,
             });
 
             builder.Entity<AppUser>().HasData(new AppUser
