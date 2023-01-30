@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection.Emit;
+using System.Reflection.Metadata;
 
 namespace BeautyNails.Data
 {
@@ -97,6 +98,13 @@ namespace BeautyNails.Data
                 UserId = "3"
             });
 
+            builder.Entity<Product>().HasData(
+                
+                new Product { Id = 1,  Price = 22, ProductDescription = "Nagellack som är coolt", ProductName = "Nagellack", TimeToFinnish = "60" },
+                new Product { Id = 2, Price = 300, ProductDescription = "Manikyr för coola män", ProductName = "Manikyr", TimeToFinnish = "30" },
+                new Product { Id = 3, Price = 150, ProductDescription = "Mer volym för dina fransar", ProductName = "Volymfransar", TimeToFinnish = "90" },
+                new Product { Id = 4, Price = 200, ProductDescription = "Om du vill ha ont och betala för det", ProductName = "Massage", TimeToFinnish = "120" }
+                );
         }
 
       
