@@ -9,7 +9,7 @@ namespace BeautyNails.Models
         public string ProductName { get; set; } = string.Empty;
         [Required]
         public string ProductDescription { get; set; } = string.Empty;
-        public DateTime? AvalaibleDate { get; set; }
+
         [Required]
         public string TimeToFinnish { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;

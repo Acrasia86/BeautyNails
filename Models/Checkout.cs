@@ -8,7 +8,10 @@ namespace BeautyNails.Models
         public AppUser User { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
-        public Product Product { get; set; } 
+        public Product Product { get; set; }
+        public DateTime BookedDate { get; set; }
+        public double? DailySum { get; set; }
+        public double? MonthlySum { get; set; }
         public string Address { get; set; } = string.Empty;
         public string ZipCode { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
