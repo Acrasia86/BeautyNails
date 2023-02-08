@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230130175121_seed-product")]
-    partial class seedproduct
+    [Migration("20230208210511_TestingNewModel")]
+    partial class TestingNewModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -132,17 +132,17 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 1, 30, 18, 51, 21, 391, DateTimeKind.Local).AddTicks(3583),
-                            ConcurrencyStamp = "86e8f4e1-f7e7-4955-9275-6e4d6634d72e",
+                            BirthDay = new DateTime(2023, 2, 8, 22, 5, 11, 213, DateTimeKind.Local).AddTicks(2338),
+                            ConcurrencyStamp = "5a3c44d2-9bb3-4850-8d59-12c7bac0ba22",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB8l6jhsTw0b1pnx4xlaLw/W79THBBn05YMzgutW+9Bqr+k3mX3PItLlC8uszf32Lg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELfAIb5bfnbG2zGa1GAX3jYCOlRJLluD87Xt1iDGURgMQqqY2GsAYi0tJHrKFNr6uA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5d206929-5484-4c52-845d-feddcecc3d70",
+                            SecurityStamp = "8b127f11-cf28-406a-beca-5e1e0d637a3e",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -151,16 +151,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "3e191cfb-b044-4057-af27-100784d7cae2",
+                            ConcurrencyStamp = "3d0fa17b-04b4-42fc-8163-576842f518ad",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKJQSnMb+D8lJXsFj7Q3Y7roghJ/7l9NcZrSLT2uWeOZfmM2wYdIpTAUmS2EJPcwww==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGU4xi8PKS/ZyWkL8ch56Y+CTdgZnD+6el44QsSz4nWI1cRZhFSUpyao/hd11g6s4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4f825544-1f55-4dca-99ad-5a1491271675",
+                            SecurityStamp = "a8afd306-49ca-40ff-88bd-378b8ffb7eff",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -169,16 +169,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "cb36b685-a3a0-4605-83aa-116beddff78b",
+                            ConcurrencyStamp = "cbe7ded0-34ac-44f8-a196-6948ff005bab",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMI4sU54ukGuie1FtcKg/3WcwIrCCZ20iG8MbHn4csqXP19CweUbweLAI4LWnGBBCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKkVaqeKmBIGfPXgTu5IoUrxhuGRqNKw1HhwhnPIUvTc0cNEDj33syAcsROIn5YbYQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cfba4cf1-b324-435d-a296-09934347307a",
+                            SecurityStamp = "2568d219-2173-4bcf-967b-2b209bfb1d55",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         });
@@ -186,18 +186,17 @@ namespace BeautyNails.Migrations
 
             modelBuilder.Entity("BeautyNails.Models.Checkout", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("BookedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
@@ -207,7 +206,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ZipCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -248,9 +246,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("AvalaibleDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()

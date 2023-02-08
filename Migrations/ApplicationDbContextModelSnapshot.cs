@@ -130,17 +130,17 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 2, 1, 9, 50, 277, DateTimeKind.Local).AddTicks(6173),
-                            ConcurrencyStamp = "4fcdec70-a4ed-452a-9d4e-2750139bf2ae",
+                            BirthDay = new DateTime(2023, 2, 8, 22, 5, 11, 213, DateTimeKind.Local).AddTicks(2338),
+                            ConcurrencyStamp = "5a3c44d2-9bb3-4850-8d59-12c7bac0ba22",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKS5H4Nil4p7tuUY7pHPwqKjO9o5YuRyTriCMns2/F1OgpoBBCUgWQMZewDqYeLX4w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELfAIb5bfnbG2zGa1GAX3jYCOlRJLluD87Xt1iDGURgMQqqY2GsAYi0tJHrKFNr6uA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "16b69820-5757-4104-817d-98d76e26b1bd",
+                            SecurityStamp = "8b127f11-cf28-406a-beca-5e1e0d637a3e",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -149,16 +149,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "f3187ce0-34aa-4feb-8c1a-306a7d2b3721",
+                            ConcurrencyStamp = "3d0fa17b-04b4-42fc-8163-576842f518ad",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMnZx+U54tUKA7Elq2GxNK8ALHBcjpEk4wQv8a3lGP2xrmrFsJvtFerg5CSH9XaCqQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGU4xi8PKS/ZyWkL8ch56Y+CTdgZnD+6el44QsSz4nWI1cRZhFSUpyao/hd11g6s4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bf48dcb1-13bf-42e7-82c6-6f506601bfe9",
+                            SecurityStamp = "a8afd306-49ca-40ff-88bd-378b8ffb7eff",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -167,16 +167,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "929eb702-b71b-489e-a343-c957e0c407d6",
+                            ConcurrencyStamp = "cbe7ded0-34ac-44f8-a196-6948ff005bab",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAkS2/BWdgTdueBrA+IaG27Bv8b4QSeF/q1MsjY15QT2itUr4IESinkXQnYGTL1UqQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKkVaqeKmBIGfPXgTu5IoUrxhuGRqNKw1HhwhnPIUvTc0cNEDj33syAcsROIn5YbYQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e31cb8ee-3116-4610-b236-218fbc92fb37",
+                            SecurityStamp = "2568d219-2173-4bcf-967b-2b209bfb1d55",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         });
@@ -184,27 +184,17 @@ namespace BeautyNails.Migrations
 
             modelBuilder.Entity("BeautyNails.Models.Checkout", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("BookedDate")
+                    b.Property<DateTime?>("BookedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double?>("DailySum")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("MonthlySum")
-                        .HasColumnType("float");
-
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
@@ -214,7 +204,6 @@ namespace BeautyNails.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ZipCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

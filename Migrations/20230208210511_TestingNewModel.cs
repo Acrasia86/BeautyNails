@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeautyNails.Migrations
 {
-    public partial class New : Migration
+    public partial class TestingNewModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,7 @@ namespace BeautyNails.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -74,8 +75,8 @@ namespace BeautyNails.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AvalaibleDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TimeToFinnish = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
@@ -228,20 +229,63 @@ namespace BeautyNails.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CheckOut",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    BookedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CheckOut", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CheckOut_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_CheckOut_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1", null, "Admin", "ADMIN" });
+                values: new object[,]
+                {
+                    { "1", null, "Admin", "ADMIN" },
+                    { "2", null, "User", "USER" }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Bio", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "1", 0, "Blabla", "2098d001-cf3d-4f7e-91dd-7d14cde770e3", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEFa+j5s2x4HEGbe1y0KavAXDjsYPAysErouKJrGYDRS75ebSCzo3xs8p6ZBqlqc5mQ==", null, false, "635064e9-3d25-47fd-9bd2-26801dbecf0d", false, "Jacob@mail.com" });
+                columns: new[] { "Id", "AccessFailedCount", "Bio", "BirthDay", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "1", 0, "Blabla", new DateTime(2023, 2, 8, 22, 5, 11, 213, DateTimeKind.Local).AddTicks(2338), "5a3c44d2-9bb3-4850-8d59-12c7bac0ba22", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAELfAIb5bfnbG2zGa1GAX3jYCOlRJLluD87Xt1iDGURgMQqqY2GsAYi0tJHrKFNr6uA==", null, false, "8b127f11-cf28-406a-beca-5e1e0d637a3e", false, "Jacob@mail.com" },
+                    { "2", 0, "Blabla", null, "3d0fa17b-04b4-42fc-8163-576842f518ad", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEGU4xi8PKS/ZyWkL8ch56Y+CTdgZnD+6el44QsSz4nWI1cRZhFSUpyao/hd11g6s4Q==", null, false, "a8afd306-49ca-40ff-88bd-378b8ffb7eff", false, "Aleksandra@mail.com" },
+                    { "3", 0, "Blabla", null, "cbe7ded0-34ac-44f8-a196-6948ff005bab", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEKkVaqeKmBIGfPXgTu5IoUrxhuGRqNKw1HhwhnPIUvTc0cNEDj33syAcsROIn5YbYQ==", null, false, "2568d219-2173-4bcf-967b-2b209bfb1d55", false, "User@mail.com" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Bio", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2", 0, "Blabla", "3a9efbe1-7409-417a-8f4a-a5bbaf7ab029", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEArhtEkx44lbbht/no/TcHAzJIvOicqK/Rz0KJX1RNyVHvm0fuNtpS/gWHD6ZOkwKQ==", null, false, "841aeb5d-1e3a-47bb-a386-42f1c398597f", false, "Aleksandra@mail.com" });
+                table: "Product",
+                columns: new[] { "Id", "ImageUrl", "Price", "ProductDescription", "ProductName", "TimeToFinnish" },
+                values: new object[,]
+                {
+                    { 1, "", 22.0, "Nagellack som är coolt", "Nagellack", "60" },
+                    { 2, "", 300.0, "Manikyr för coola män", "Manikyr", "30" },
+                    { 3, "", 150.0, "Mer volym för dina fransar", "Volymfransar", "90" },
+                    { 4, "", 200.0, "Om du vill ha ont och betala för det", "Massage", "120" }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -252,6 +296,11 @@ namespace BeautyNails.Migrations
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[] { "1", "2" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "2", "3" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -293,6 +342,16 @@ namespace BeautyNails.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CheckOut_ProductId",
+                table: "CheckOut",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CheckOut_UserId",
+                table: "CheckOut",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DaysOpen_AboutId",
                 table: "DaysOpen",
                 column: "AboutId");
@@ -321,16 +380,19 @@ namespace BeautyNails.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "DaysOpen");
+                name: "CheckOut");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "DaysOpen");
 
             migrationBuilder.DropTable(
                 name: "Review");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "About");

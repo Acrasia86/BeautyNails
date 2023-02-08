@@ -26,7 +26,7 @@ namespace BeautyNails.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetCheckOut(int id)
+        public async Task<ActionResult> GetCheckOut(Guid id)
         {
             var checkout = await _context.CheckOut.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -35,11 +35,6 @@ namespace BeautyNails.Controllers
             if (checkoutMap == null)
             {
                 return NotFound("Checkout was null");
-            }
-
-            if (id < 0)
-            {
-                return BadRequest("Id can't be less then 0");
             }
 
             return new OkObjectResult(checkoutMap);

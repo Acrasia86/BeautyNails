@@ -4,17 +4,15 @@ namespace BeautyNails.Models
 {
     public class Checkout
     {
-        public int Id { get; set; }
-        public AppUser User { get; set; }
+        public Guid Id { get; set; }
+        public AppUser? User { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-        public DateTime BookedDate { get; set; }
-        public double? DailySum { get; set; }
-        public double? MonthlySum { get; set; }
-        public string Address { get; set; } = string.Empty;
-        public string ZipCode { get; set; } = string.Empty;
-        public string PhoneNumber { get; set; } = string.Empty;
+        public Product? Product { get; set; }
+        public DateTime? BookedDate { get; set; }
+        public string? Address { get; set; } = string.Empty;
+        public string? ZipCode { get; set; } = string.Empty;
+        public string? PhoneNumber { get; set; } = string.Empty;
 
     }
 }
