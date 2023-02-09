@@ -40,7 +40,7 @@ namespace BeautyNails.Controllers
             return new OkObjectResult(checkoutMap);
         }
 
-        [Authorize]
+     
         [HttpPost]
         public async Task<ActionResult> PostCheckOut(CheckoutDto checkoutDto)
         {
