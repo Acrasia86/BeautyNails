@@ -102,6 +102,18 @@ namespace BeautyNails.Controllers
             return Ok(role);
         }
 
+
+        [HttpGet("GetAllUsers")]
+        public async Task<ActionResult> GetAllUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            if(users == null)
+            {
+                return NotFound();
+            }
+            return Ok(users);
+        }
+
         private UserDto CreateUserObject(AppUser user)
         {
 

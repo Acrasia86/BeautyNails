@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeautyNails.Migrations
 {
-    public partial class TestingNewModel : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -237,9 +237,9 @@ namespace BeautyNails.Migrations
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     BookedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -271,9 +271,9 @@ namespace BeautyNails.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Bio", "BirthDay", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Blabla", new DateTime(2023, 2, 8, 22, 5, 11, 213, DateTimeKind.Local).AddTicks(2338), "5a3c44d2-9bb3-4850-8d59-12c7bac0ba22", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAELfAIb5bfnbG2zGa1GAX3jYCOlRJLluD87Xt1iDGURgMQqqY2GsAYi0tJHrKFNr6uA==", null, false, "8b127f11-cf28-406a-beca-5e1e0d637a3e", false, "Jacob@mail.com" },
-                    { "2", 0, "Blabla", null, "3d0fa17b-04b4-42fc-8163-576842f518ad", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEGU4xi8PKS/ZyWkL8ch56Y+CTdgZnD+6el44QsSz4nWI1cRZhFSUpyao/hd11g6s4Q==", null, false, "a8afd306-49ca-40ff-88bd-378b8ffb7eff", false, "Aleksandra@mail.com" },
-                    { "3", 0, "Blabla", null, "cbe7ded0-34ac-44f8-a196-6948ff005bab", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEKkVaqeKmBIGfPXgTu5IoUrxhuGRqNKw1HhwhnPIUvTc0cNEDj33syAcsROIn5YbYQ==", null, false, "2568d219-2173-4bcf-967b-2b209bfb1d55", false, "User@mail.com" }
+                    { "1", 0, "Blabla", new DateTime(2023, 2, 9, 17, 36, 6, 618, DateTimeKind.Local).AddTicks(8955), "e67951ce-4d9f-42c3-ad52-a2db5a6baee6", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAELHq48Rq7BmL0u6cAv6ZeDoYf0M8ZuRi0gyZK40AJ3PJLD4P6KsP8PjG85ZveThgUg==", null, false, "72b557cf-a279-447c-bb4f-74c3d4c7f0b5", false, "Jacob@mail.com" },
+                    { "2", 0, "Blabla", null, "b95affd8-ca9a-4249-a4bc-a112de916c2d", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEJq9qknZz7vwL3rZ/rGYdzBA7bqOTBiUmhqcK3HN//5e/cJXXoeFawIKTNW9GTeKWw==", null, false, "37f92cc0-e60a-4672-80cd-9748d3a78a01", false, "Aleksandra@mail.com" },
+                    { "3", 0, "Blabla", null, "df467ff4-0f18-4854-ae0b-248a7603616f", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEFF/kn6NbvgpQKnxnldKdaLXFkfxOVXLmH40KivrkYyzh+csNfBaVbJ7oyHAKCq32Q==", null, false, "8615831a-82ea-4f03-9c6a-6c00696a3f7a", false, "User@mail.com" }
                 });
 
             migrationBuilder.InsertData(

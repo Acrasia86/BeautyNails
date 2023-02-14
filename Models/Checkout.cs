@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeautyNails.Models
 {
@@ -10,9 +11,12 @@ namespace BeautyNails.Models
         [ForeignKey("ProductId")]
         public Product? Product { get; set; }
         public DateTime? BookedDate { get; set; }
-        public string? Address { get; set; } = string.Empty;
-        public string? ZipCode { get; set; } = string.Empty;
-        public string? PhoneNumber { get; set; } = string.Empty;
+        [Required]
+        public string Address { get; set; } = string.Empty;
+        [Required]
+        public string ZipCode { get; set; } = string.Empty;
+        [Required]
+        public string PhoneNumber { get; set; } = string.Empty;
 
     }
 }

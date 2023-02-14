@@ -4,6 +4,7 @@ using BeautyNails.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230209163606_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,17 +132,17 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 14, 5, 21, 3, 194, DateTimeKind.Local).AddTicks(9487),
-                            ConcurrencyStamp = "200a422d-d619-4041-934b-4a2095119c0b",
+                            BirthDay = new DateTime(2023, 2, 9, 17, 36, 6, 618, DateTimeKind.Local).AddTicks(8955),
+                            ConcurrencyStamp = "e67951ce-4d9f-42c3-ad52-a2db5a6baee6",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPO/14J8oS7kXFxr4qZLsB5435fScmm64+qgdqPFgR1XGyG8uXICCIceTqca70nm3A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELHq48Rq7BmL0u6cAv6ZeDoYf0M8ZuRi0gyZK40AJ3PJLD4P6KsP8PjG85ZveThgUg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5fda2e39-f93a-47ec-8825-3d6126ff2797",
+                            SecurityStamp = "72b557cf-a279-447c-bb4f-74c3d4c7f0b5",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -149,16 +151,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "2859620f-9930-423b-9196-311a85e2f0f8",
+                            ConcurrencyStamp = "b95affd8-ca9a-4249-a4bc-a112de916c2d",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBW37ofwWfZTUzitvZjmsys2lrYy1yCmtVmLTZjrJl4DIhrrpEtSVARgGbSzJTcOJg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJq9qknZz7vwL3rZ/rGYdzBA7bqOTBiUmhqcK3HN//5e/cJXXoeFawIKTNW9GTeKWw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "53bb8984-dc87-47eb-a77e-f9b86fc914cc",
+                            SecurityStamp = "37f92cc0-e60a-4672-80cd-9748d3a78a01",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -167,16 +169,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "ebc85eb7-9db2-455b-beec-48bc6323b555",
+                            ConcurrencyStamp = "df467ff4-0f18-4854-ae0b-248a7603616f",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMbFO8TyLZNrzdNP5wDyvNYW7K38Wke3yT6oN6YuDKE9YC+6fYFaZ04C0dm5QaIc/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFF/kn6NbvgpQKnxnldKdaLXFkfxOVXLmH40KivrkYyzh+csNfBaVbJ7oyHAKCq32Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "873e57f6-0aea-4afc-9a35-523286c3a04d",
+                            SecurityStamp = "8615831a-82ea-4f03-9c6a-6c00696a3f7a",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         });
@@ -307,24 +309,6 @@ namespace BeautyNails.Migrations
                             ProductDescription = "Om du vill ha ont och betala för det",
                             ProductName = "Massage",
                             TimeToFinnish = "120"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ImageUrl = "",
-                            Price = 600.0,
-                            ProductDescription = "Test1",
-                            ProductName = "Test1",
-                            TimeToFinnish = "100"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ImageUrl = "",
-                            Price = 190.0,
-                            ProductDescription = "Test2",
-                            ProductName = "Test2",
-                            TimeToFinnish = "50"
                         });
                 });
 

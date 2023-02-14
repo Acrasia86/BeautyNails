@@ -52,7 +52,7 @@ namespace BeautyNails.Controllers
             {
                 return BadRequest("Object was null");
             }
-
+            
             var checkout = _mapper.Map<Checkout>(checkoutDto);
             checkout.User = _userManager.FindByEmailAsync(User.Identity.Name).Result;
 
@@ -60,6 +60,24 @@ namespace BeautyNails.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(checkout);
+        }
+        [HttpGet("CheckoutService")]
+        public async Task<ActionResult> CheckoutProduct()
+        {
+            var checkoutProduct = await _context.CheckOut.Include(x => x.Product).ToListAsync();
+            
+            return Ok(checkoutProduct);
+        }
+
+        [HttpGet("GetAllCheckouts")]
+        public async Task<ActionResult> GetAllCheckouts()
+        {
+            var checkouts = await _context.CheckOut.ToListAsync();
+            if(checkouts == null)
+            {
+                return NotFound();
+            }
+            return Ok(checkouts);
         }
     }
 }
