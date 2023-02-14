@@ -80,6 +80,22 @@ namespace BeautyNails.Data
                 DisplayName = "User"
             });
 
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "4",
+                UserName = "Henrik@mail.com",
+                NormalizedUserName = "HENRIK@MAIL.COM",
+                Email = "Henrik@mail.com",
+                NormalizedEmail = "HENRIK@MAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = passwordHasher.HashPassword(null, "Password1!"),
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                Bio = "Blabla",
+                DisplayName = "Henke",
+                BirthDay = DateTime.Today
+            }); 
+
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "1",
@@ -96,6 +112,12 @@ namespace BeautyNails.Data
             {
                 RoleId = "2",
                 UserId = "3"
+            });
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "2",
+                UserId = "4"
             });
 
             builder.Entity<Product>().HasData(

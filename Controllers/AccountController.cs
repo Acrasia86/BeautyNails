@@ -114,6 +114,13 @@ namespace BeautyNails.Controllers
             return Ok(users);
         }
 
+        [HttpGet("Birthday")]
+        public async Task<ActionResult> BirthDay()
+        {
+            var birthDay = await _context.Users.Where(x => x.BirthDay== DateTime.Today).ToListAsync();
+            return Ok(birthDay);
+        }
+
         private UserDto CreateUserObject(AppUser user)
         {
 
