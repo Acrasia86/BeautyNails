@@ -4,7 +4,7 @@ namespace BeautyNails.DTOs
 {
     public class ProductDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         public string ProductName { get; set; } = string.Empty;
         [Required]
@@ -12,7 +12,6 @@ namespace BeautyNails.DTOs
 
         [Required]
         public string TimeToFinnish { get; set; } = string.Empty;
-        public string ImageUrl { get; set; } = string.Empty;
         [Required]
         public double Price { get; set; }
     }

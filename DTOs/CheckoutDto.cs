@@ -7,7 +7,7 @@ namespace BeautyNails.DTOs
     public class CheckoutDto
     {
         public Guid? Id { get; set; }
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public DateTime? BookedDate { get; set; }
         [Required]
         public string Address { get; set; } = string.Empty;

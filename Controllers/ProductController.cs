@@ -39,7 +39,7 @@ namespace BeautyNails.Controllers
 
         [HttpGet("{id?}")]
         [AllowAnonymous]
-        public async Task<ActionResult> GetProduct(int id)
+        public async Task<ActionResult> GetProduct(Guid id)
         {
             var product = await _context.Product.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -50,10 +50,7 @@ namespace BeautyNails.Controllers
                 return NotFound("Product not found");
             }
 
-            if(id < 0)
-            {
-                return BadRequest("Id can't be less then 0");
-            }
+           
 
             return new OkObjectResult(productMap);
         }
@@ -78,17 +75,14 @@ namespace BeautyNails.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteProduct(int id)
+        public async Task<ActionResult> DeleteProduct(Guid id)
         {
             var product = _context.Product.FirstOrDefault(x => x.Id == id);
             if(product == null)
             {
                 return NotFound("Product not found");
             }
-            if(id < 0)
-            {
-                return BadRequest("Id can't be less then 0");
-            }
+            
             _context.Product.Remove(product);
             await _context.SaveChangesAsync();
 
@@ -96,7 +90,7 @@ namespace BeautyNails.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateProduct(int id, ProductDto product)
+        public async Task<ActionResult> UpdateProduct(Guid id, ProductDto product)
         {
 
             if(product == null)
@@ -107,11 +101,6 @@ namespace BeautyNails.Controllers
             if(id != product.Id)
             {
                 return BadRequest("Id not found");
-            }
-
-            if(id < 0)
-            {
-                return BadRequest("Id can't be less then 0");
             }
 
             if(!ModelState.IsValid)

@@ -94,7 +94,24 @@ namespace BeautyNails.Data
                 Bio = "Blabla",
                 DisplayName = "Henke",
                 BirthDay = DateTime.Today
-            }); 
+            });
+
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "5",
+                UserName = "Kalle@mail.com",
+                NormalizedUserName = "KALLE@MAIL.COM",
+                Email = "Kalle@mail.com",
+                NormalizedEmail = "KALLE@MAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = passwordHasher.HashPassword(null, "Password1!"),
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                Bio = "Blabla",
+                DisplayName = "Kallan",
+                BirthDay = DateTime.Today
+            });
+
 
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
@@ -122,12 +139,12 @@ namespace BeautyNails.Data
 
             builder.Entity<Product>().HasData(
                 
-                new Product { Id = 1,  Price = 22, ProductDescription = "Nagellack som är coolt", ProductName = "Nagellack", TimeToFinnish = "60" },
-                new Product { Id = 2, Price = 300, ProductDescription = "Manikyr för coola män", ProductName = "Manikyr", TimeToFinnish = "30" },
-                new Product { Id = 3, Price = 150, ProductDescription = "Mer volym för dina fransar", ProductName = "Volymfransar", TimeToFinnish = "90" },
-                new Product { Id = 4, Price = 200, ProductDescription = "Om du vill ha ont och betala för det", ProductName = "Massage", TimeToFinnish = "120" },
-                new Product { Id = 12, Price = 600, ProductDescription = "Test1", ProductName = "Test1", TimeToFinnish = "100" },
-                new Product { Id = 15, Price = 190, ProductDescription = "Test2", ProductName = "Test2", TimeToFinnish = "50" }
+                new Product { Id = Guid.NewGuid(),  Price = 22, ProductDescription = "Nagellack som är coolt", ProductName = "Nagellack", TimeToFinnish = "60" },
+                new Product { Id = Guid.NewGuid(), Price = 300, ProductDescription = "Manikyr för coola män", ProductName = "Manikyr", TimeToFinnish = "30" },
+                new Product { Id = Guid.NewGuid(), Price = 150, ProductDescription = "Mer volym för dina fransar", ProductName = "Volymfransar", TimeToFinnish = "90" },
+                new Product { Id = Guid.NewGuid(), Price = 200, ProductDescription = "Om du vill ha ont och betala för det", ProductName = "Massage", TimeToFinnish = "120" },
+                new Product { Id = Guid.NewGuid(), Price = 600, ProductDescription = "Test1", ProductName = "Test1", TimeToFinnish = "100" },
+                new Product { Id = Guid.NewGuid(), Price = 190, ProductDescription = "Test2", ProductName = "Test2", TimeToFinnish = "50" }
                 );
         }
 

@@ -71,12 +71,10 @@ namespace BeautyNails.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TimeToFinnish = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
@@ -235,7 +233,7 @@ namespace BeautyNails.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BookedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -271,36 +269,36 @@ namespace BeautyNails.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Bio", "BirthDay", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Blabla", new DateTime(2023, 2, 9, 17, 36, 6, 618, DateTimeKind.Local).AddTicks(8955), "e67951ce-4d9f-42c3-ad52-a2db5a6baee6", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAELHq48Rq7BmL0u6cAv6ZeDoYf0M8ZuRi0gyZK40AJ3PJLD4P6KsP8PjG85ZveThgUg==", null, false, "72b557cf-a279-447c-bb4f-74c3d4c7f0b5", false, "Jacob@mail.com" },
-                    { "2", 0, "Blabla", null, "b95affd8-ca9a-4249-a4bc-a112de916c2d", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEJq9qknZz7vwL3rZ/rGYdzBA7bqOTBiUmhqcK3HN//5e/cJXXoeFawIKTNW9GTeKWw==", null, false, "37f92cc0-e60a-4672-80cd-9748d3a78a01", false, "Aleksandra@mail.com" },
-                    { "3", 0, "Blabla", null, "df467ff4-0f18-4854-ae0b-248a7603616f", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEFF/kn6NbvgpQKnxnldKdaLXFkfxOVXLmH40KivrkYyzh+csNfBaVbJ7oyHAKCq32Q==", null, false, "8615831a-82ea-4f03-9c6a-6c00696a3f7a", false, "User@mail.com" }
+                    { "1", 0, "Blabla", new DateTime(2023, 2, 15, 14, 38, 18, 322, DateTimeKind.Local).AddTicks(2160), "7ff4c7af-e7cc-46cb-8ebb-4fe27188f777", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEJSPXjV0u4JGJ2eQWxmzv9ALWSZsn8X+3PGNK4uso8YVdvQ5uPE5nJMLTsvZ3HXzuw==", null, false, "93a99c5a-a5e5-4815-9c7c-79f227b2181f", false, "Jacob@mail.com" },
+                    { "2", 0, "Blabla", null, "8b4ac9e7-17cf-4b13-9a8e-0db44e0a8388", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEJQWKYwbpYz9L01527OtupV/kcef9Kap4LCkeZZlaGMFvdGHUciDWTpL0IXnFhgRHw==", null, false, "945a542e-5290-4739-98ad-435e0e21b5b6", false, "Aleksandra@mail.com" },
+                    { "3", 0, "Blabla", null, "607cab16-3eea-4086-8d74-7d1a0a0451d8", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEOQa9VGgAK0dWxfV8qlyZV9xP9Fn5+LwFvUM9n9MI6DEGTChHuXh6PAYjsbI3SvCqQ==", null, false, "f7393c46-2a45-454c-a235-c327ec91b264", false, "User@mail.com" },
+                    { "4", 0, "Blabla", new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Local), "08d6728b-5c55-4bf6-ba56-aa031d4d27b7", "Henke", "Henrik@mail.com", true, false, null, "HENRIK@MAIL.COM", "HENRIK@MAIL.COM", "AQAAAAEAACcQAAAAEOQKKHbtoOOwIVOxJzHmBi5JF1DxlOnNYl8Qr+BLEI8qd5HvxDFR4NzZqldU2dmENQ==", null, false, "de54adec-d001-4734-b7e8-d8a22acb7a6f", false, "Henrik@mail.com" },
+                    { "5", 0, "Blabla", new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Local), "2657748c-05a7-49f6-9ad8-d45b91ddeab0", "Kallan", "Kalle@mail.com", true, false, null, "KALLE@MAIL.COM", "KALLE@MAIL.COM", "AQAAAAEAACcQAAAAEHf/NG+ybTiLGFW/ffJrcudd9GHVyJJt8Hkp82GIAa47xdbwPjfh1B5MLFd8wXHGIQ==", null, false, "099f9142-4f70-439c-9f53-04244f20a7f5", false, "Kalle@mail.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "ImageUrl", "Price", "ProductDescription", "ProductName", "TimeToFinnish" },
+                columns: new[] { "Id", "Price", "ProductDescription", "ProductName", "TimeToFinnish" },
                 values: new object[,]
                 {
-                    { 1, "", 22.0, "Nagellack som är coolt", "Nagellack", "60" },
-                    { 2, "", 300.0, "Manikyr för coola män", "Manikyr", "30" },
-                    { 3, "", 150.0, "Mer volym för dina fransar", "Volymfransar", "90" },
-                    { 4, "", 200.0, "Om du vill ha ont och betala för det", "Massage", "120" }
+                    { new Guid("8bb4d9e0-7df8-4389-832b-ff9d006a2daf"), 150.0, "Mer volym för dina fransar", "Volymfransar", "90" },
+                    { new Guid("8c119c79-d0f6-485c-9adc-d4222a7c7469"), 190.0, "Test2", "Test2", "50" },
+                    { new Guid("a2de7680-e251-43e4-b9ab-ef5fe997eb17"), 300.0, "Manikyr för coola män", "Manikyr", "30" },
+                    { new Guid("c6d71e4f-cf22-4383-9685-e143ccfcb33c"), 22.0, "Nagellack som är coolt", "Nagellack", "60" },
+                    { new Guid("c86a08e8-d300-4e39-8d3a-a0800e0fb002"), 600.0, "Test1", "Test1", "100" },
+                    { new Guid("e701a23d-ab8f-4f82-9478-a46d5d0c2819"), 200.0, "Om du vill ha ont och betala för det", "Massage", "120" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "1", "1" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "1", "2" });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2", "3" });
+                values: new object[,]
+                {
+                    { "1", "1" },
+                    { "1", "2" },
+                    { "2", "3" },
+                    { "2", "4" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
