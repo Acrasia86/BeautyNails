@@ -90,17 +90,13 @@ namespace BeautyNails.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateProduct(Guid id, ProductDto product)
+        [AllowAnonymous]
+        public async Task<ActionResult> UpdateProduct(ProductDto product)
         {
 
             if(product == null)
             {
                 return BadRequest("Product was null");
-            }
-
-            if(id != product.Id)
-            {
-                return BadRequest("Id not found");
             }
 
             if(!ModelState.IsValid)

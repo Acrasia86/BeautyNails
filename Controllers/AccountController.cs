@@ -102,6 +102,25 @@ namespace BeautyNails.Controllers
             return Ok(role);
         }
 
+        //[HttpGet("getroles")]
+        //public async Task<ActionResult> GetRoles()
+        //{
+
+        //    var userEmail = _userManager.Users;
+        //    foreach (var item in userEmail)
+        //    {
+        //        var user = await _userManager.FindByEmailAsync(item.Email);
+        //        var role = await _userManager.GetRolesAsync(user);
+        //        return Ok(user);
+        //    }
+
+     
+
+        //    return Ok();
+        //}
+
+
+
 
         [HttpGet("GetAllUsers")]
         public async Task<ActionResult> GetAllUsers()
