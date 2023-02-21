@@ -5,6 +5,7 @@ using BeautyNails.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -90,39 +91,20 @@ namespace BeautyNails.Controllers
             return CreateUserObject(user);
         }
 
-        
+
         [HttpGet("getrole")]
         public async Task<ActionResult> GetRole()
         {
-           
+
             var userEmail = this.User.FindFirstValue(ClaimTypes.Email);
             var user = await _userManager.FindByEmailAsync(userEmail);
             var role = await _userManager.GetRolesAsync(user);
 
             return Ok(role);
+
         }
 
-        //[HttpGet("getroles")]
-        //public async Task<ActionResult> GetRoles()
-        //{
-
-        //    var userEmail = _userManager.Users;
-        //    foreach (var item in userEmail)
-        //    {
-        //        var user = await _userManager.FindByEmailAsync(item.Email);
-        //        var role = await _userManager.GetRolesAsync(user);
-        //        return Ok(user);
-        //    }
-
-     
-
-        //    return Ok();
-        //}
-
-
-
-
-        [HttpGet("GetAllUsers")]
+    [HttpGet("GetAllUsers")]
         public async Task<ActionResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();

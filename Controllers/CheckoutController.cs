@@ -64,7 +64,7 @@ namespace BeautyNails.Controllers
         [HttpGet("CheckoutService")]
         public async Task<ActionResult> CheckoutProduct()
         {
-            var checkoutProduct = await _context.CheckOut.Include(x => x.Product).ToListAsync();
+            var checkoutProduct = await _context.CheckOut.Include(x => x.Product).Include(x => x.User).ToListAsync();
             
             return Ok(checkoutProduct);
         }
