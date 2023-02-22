@@ -57,6 +57,7 @@ namespace BeautyNails.Controllers
 
         
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> PostProduct(ProductDto productDto)
         {
             if(!ModelState.IsValid)

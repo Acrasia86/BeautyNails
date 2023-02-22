@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230216132053_Initial")]
+    [Migration("20230221234408_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,17 +132,17 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 16, 14, 20, 53, 298, DateTimeKind.Local).AddTicks(440),
-                            ConcurrencyStamp = "9f8deeb1-1f66-4a54-9eb4-3f8bf0077636",
+                            BirthDay = new DateTime(2023, 2, 22, 0, 44, 8, 172, DateTimeKind.Local).AddTicks(7060),
+                            ConcurrencyStamp = "6977a4da-7942-4dea-98c1-99a7468c627f",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFxQo/AjAeiPrxkI27IgbyPWCD5lYiKrjvlOulhWcTX7kkAIm5HvcL+DtpssH6Nbmw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE8GmLg983R2u0aiTpm1egvLb+HUU90ehfOTDsUtoWmluAAtZQBY7v3L0tkrpTmylg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "57829392-ff41-4492-a9dc-8200ad413c13",
+                            SecurityStamp = "0ed69676-1f16-4423-8f3a-06c16fa5669a",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -151,16 +151,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "d3dd3322-10c8-40b6-8b3d-7476b2a693f0",
+                            ConcurrencyStamp = "f21b674b-d099-427b-b876-5568fb89a938",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIU9QcqINQy8/glWzqPOGtYlbc2gE4Lo+8GcptFX+E9m/xvO2mY9WFVMWmL80uiSBg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEImfkAtVY8rukV9f/PrH6sL3WcxnKagOa/gOj5axwSG8Cb78UAWaWn7Bji0IyfCVug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "802e257b-4a48-48ed-ac7b-ba2578802c0c",
+                            SecurityStamp = "731a15d8-03de-40b3-b9ea-ee361f8f6726",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -169,16 +169,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "2a62e205-e808-4df9-abe8-4463aaaae954",
+                            ConcurrencyStamp = "6ba34371-3c2d-47d7-9e04-581c4aa0675f",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG22m/Zvyykt/xYFUSO0w/dsKthfHvT00B3fzUV3Bxp9iCcr7aBUwc6QQbyDNMC3yA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECl0wiZTKG2TqT0/I7q35kbjgtgrHiBrXaj+jhqSHMxzmo+ldb5Q6Of3Z7WF4bMMgw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "78600068-0455-423c-9e4e-688b8191304d",
+                            SecurityStamp = "741059b6-1f90-4141-b3d2-fbbaf68928aa",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         },
@@ -187,17 +187,17 @@ namespace BeautyNails.Migrations
                             Id = "4",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
-                            ConcurrencyStamp = "0dbc5d98-db7f-4b63-b817-3fd1f1f0f030",
+                            BirthDay = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ConcurrencyStamp = "f891bb04-6236-4236-bd40-4efa10cde077",
                             DisplayName = "Henke",
                             Email = "Henrik@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "HENRIK@MAIL.COM",
                             NormalizedUserName = "HENRIK@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED5a0UP4s01yBJGtGn+hNNxyONBK0SByYhdYHnqnfz7xevA6MiInXNkLB0owSrj6lw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAy1wpVLT3RnGnpJMNahGA1lcN8mkEtE/3WsnfYVzhLM92rJ7Di8Ddj6tXkOqlZvzA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1bd81094-e7ea-40d5-9d45-c4c593195a44",
+                            SecurityStamp = "d567034e-92da-4226-a100-1cb696729ab8",
                             TwoFactorEnabled = false,
                             UserName = "Henrik@mail.com"
                         },
@@ -206,17 +206,17 @@ namespace BeautyNails.Migrations
                             Id = "5",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 16, 0, 0, 0, 0, DateTimeKind.Local),
-                            ConcurrencyStamp = "d89d7cd4-26f2-49cf-a59e-f6c44032fca0",
+                            BirthDay = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            ConcurrencyStamp = "6d76f2b1-a549-4bc9-b132-ca742c37c686",
                             DisplayName = "Kallan",
                             Email = "Kalle@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "KALLE@MAIL.COM",
                             NormalizedUserName = "KALLE@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAqgerZzT8+DjzMadzrXpXI7EKucMY9UGIQBeifmeQNUreyQSCcXX0ZuZv2TiDPrIw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAufgwOcUDrh7Bi/KdacqM9kJLD5jGiGhkaYxybhkj78Cnp3nYEyj8xXXE9bRYEXXQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "edbb8082-14f6-4291-8223-7b9412753051",
+                            SecurityStamp = "811bc41e-74ca-4aab-b74b-6055baba66d4",
                             TwoFactorEnabled = false,
                             UserName = "Kalle@mail.com"
                         });
@@ -308,7 +308,7 @@ namespace BeautyNails.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6c38dc6b-4c8d-4169-a229-7809fae2c8f1"),
+                            Id = new Guid("c3e7f34b-296f-4901-8d39-20cd4351b0b1"),
                             Price = 22.0,
                             ProductDescription = "Nagellack som är coolt",
                             ProductName = "Nagellack",
@@ -316,7 +316,7 @@ namespace BeautyNails.Migrations
                         },
                         new
                         {
-                            Id = new Guid("08c5c44c-b443-4354-a166-933321c1f656"),
+                            Id = new Guid("a1209a1c-fa0d-48b1-8b02-d0ec41dc4a66"),
                             Price = 300.0,
                             ProductDescription = "Manikyr för coola män",
                             ProductName = "Manikyr",
@@ -324,7 +324,7 @@ namespace BeautyNails.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c43b242a-77ce-4054-b13a-74a600407cb3"),
+                            Id = new Guid("c4a5a7b5-b3d7-49cd-94d6-441c12481522"),
                             Price = 150.0,
                             ProductDescription = "Mer volym för dina fransar",
                             ProductName = "Volymfransar",
@@ -332,7 +332,7 @@ namespace BeautyNails.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d41fa439-f74b-497f-838a-c0a89d061f32"),
+                            Id = new Guid("18ecccf3-7f5a-4619-8e97-4fb7bb2e6326"),
                             Price = 200.0,
                             ProductDescription = "Om du vill ha ont och betala för det",
                             ProductName = "Massage",
@@ -340,7 +340,7 @@ namespace BeautyNails.Migrations
                         },
                         new
                         {
-                            Id = new Guid("adc7ebe7-d9a6-4a15-b584-bed6977eebc5"),
+                            Id = new Guid("4047ccdb-6e28-4d7a-a86d-d654e29ccd11"),
                             Price = 600.0,
                             ProductDescription = "Test1",
                             ProductName = "Test1",
@@ -348,7 +348,7 @@ namespace BeautyNails.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7a7863ef-9344-45d6-800f-c08dcd2ed291"),
+                            Id = new Guid("88db2293-d067-4e7b-802c-37f83dfb0c3f"),
                             Price = 190.0,
                             ProductDescription = "Test2",
                             ProductName = "Test2",

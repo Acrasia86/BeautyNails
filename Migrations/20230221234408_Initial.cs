@@ -269,11 +269,11 @@ namespace BeautyNails.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Bio", "BirthDay", "ConcurrencyStamp", "DisplayName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Blabla", new DateTime(2023, 2, 16, 14, 20, 53, 298, DateTimeKind.Local).AddTicks(440), "9f8deeb1-1f66-4a54-9eb4-3f8bf0077636", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEFxQo/AjAeiPrxkI27IgbyPWCD5lYiKrjvlOulhWcTX7kkAIm5HvcL+DtpssH6Nbmw==", null, false, "57829392-ff41-4492-a9dc-8200ad413c13", false, "Jacob@mail.com" },
-                    { "2", 0, "Blabla", null, "d3dd3322-10c8-40b6-8b3d-7476b2a693f0", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEIU9QcqINQy8/glWzqPOGtYlbc2gE4Lo+8GcptFX+E9m/xvO2mY9WFVMWmL80uiSBg==", null, false, "802e257b-4a48-48ed-ac7b-ba2578802c0c", false, "Aleksandra@mail.com" },
-                    { "3", 0, "Blabla", null, "2a62e205-e808-4df9-abe8-4463aaaae954", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAEG22m/Zvyykt/xYFUSO0w/dsKthfHvT00B3fzUV3Bxp9iCcr7aBUwc6QQbyDNMC3yA==", null, false, "78600068-0455-423c-9e4e-688b8191304d", false, "User@mail.com" },
-                    { "4", 0, "Blabla", new DateTime(2023, 2, 16, 0, 0, 0, 0, DateTimeKind.Local), "0dbc5d98-db7f-4b63-b817-3fd1f1f0f030", "Henke", "Henrik@mail.com", true, false, null, "HENRIK@MAIL.COM", "HENRIK@MAIL.COM", "AQAAAAEAACcQAAAAED5a0UP4s01yBJGtGn+hNNxyONBK0SByYhdYHnqnfz7xevA6MiInXNkLB0owSrj6lw==", null, false, "1bd81094-e7ea-40d5-9d45-c4c593195a44", false, "Henrik@mail.com" },
-                    { "5", 0, "Blabla", new DateTime(2023, 2, 16, 0, 0, 0, 0, DateTimeKind.Local), "d89d7cd4-26f2-49cf-a59e-f6c44032fca0", "Kallan", "Kalle@mail.com", true, false, null, "KALLE@MAIL.COM", "KALLE@MAIL.COM", "AQAAAAEAACcQAAAAEAqgerZzT8+DjzMadzrXpXI7EKucMY9UGIQBeifmeQNUreyQSCcXX0ZuZv2TiDPrIw==", null, false, "edbb8082-14f6-4291-8223-7b9412753051", false, "Kalle@mail.com" }
+                    { "1", 0, "Blabla", new DateTime(2023, 2, 22, 0, 44, 8, 172, DateTimeKind.Local).AddTicks(7060), "6977a4da-7942-4dea-98c1-99a7468c627f", "Jp", "Jacob@mail.com", true, false, null, "JACOB@MAIL.COM", "JACOB@MAIL.COM", "AQAAAAEAACcQAAAAEE8GmLg983R2u0aiTpm1egvLb+HUU90ehfOTDsUtoWmluAAtZQBY7v3L0tkrpTmylg==", null, false, "0ed69676-1f16-4423-8f3a-06c16fa5669a", false, "Jacob@mail.com" },
+                    { "2", 0, "Blabla", null, "f21b674b-d099-427b-b876-5568fb89a938", "Los", "Aleksandra@mail.com", true, false, null, "ALEKSANDRA@MAIL.COM", "ALEKSANDRA@MAIL.COM", "AQAAAAEAACcQAAAAEImfkAtVY8rukV9f/PrH6sL3WcxnKagOa/gOj5axwSG8Cb78UAWaWn7Bji0IyfCVug==", null, false, "731a15d8-03de-40b3-b9ea-ee361f8f6726", false, "Aleksandra@mail.com" },
+                    { "3", 0, "Blabla", null, "6ba34371-3c2d-47d7-9e04-581c4aa0675f", "User", "User@mail.com", true, false, null, "USER@MAIL.COM", "USER@MAIL.COM", "AQAAAAEAACcQAAAAECl0wiZTKG2TqT0/I7q35kbjgtgrHiBrXaj+jhqSHMxzmo+ldb5Q6Of3Z7WF4bMMgw==", null, false, "741059b6-1f90-4141-b3d2-fbbaf68928aa", false, "User@mail.com" },
+                    { "4", 0, "Blabla", new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local), "f891bb04-6236-4236-bd40-4efa10cde077", "Henke", "Henrik@mail.com", true, false, null, "HENRIK@MAIL.COM", "HENRIK@MAIL.COM", "AQAAAAEAACcQAAAAEAy1wpVLT3RnGnpJMNahGA1lcN8mkEtE/3WsnfYVzhLM92rJ7Di8Ddj6tXkOqlZvzA==", null, false, "d567034e-92da-4226-a100-1cb696729ab8", false, "Henrik@mail.com" },
+                    { "5", 0, "Blabla", new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local), "6d76f2b1-a549-4bc9-b132-ca742c37c686", "Kallan", "Kalle@mail.com", true, false, null, "KALLE@MAIL.COM", "KALLE@MAIL.COM", "AQAAAAEAACcQAAAAEAufgwOcUDrh7Bi/KdacqM9kJLD5jGiGhkaYxybhkj78Cnp3nYEyj8xXXE9bRYEXXQ==", null, false, "811bc41e-74ca-4aab-b74b-6055baba66d4", false, "Kalle@mail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -281,12 +281,12 @@ namespace BeautyNails.Migrations
                 columns: new[] { "Id", "Price", "ProductDescription", "ProductName", "TimeToFinnish" },
                 values: new object[,]
                 {
-                    { new Guid("08c5c44c-b443-4354-a166-933321c1f656"), 300.0, "Manikyr för coola män", "Manikyr", "30" },
-                    { new Guid("6c38dc6b-4c8d-4169-a229-7809fae2c8f1"), 22.0, "Nagellack som är coolt", "Nagellack", "60" },
-                    { new Guid("7a7863ef-9344-45d6-800f-c08dcd2ed291"), 190.0, "Test2", "Test2", "50" },
-                    { new Guid("adc7ebe7-d9a6-4a15-b584-bed6977eebc5"), 600.0, "Test1", "Test1", "100" },
-                    { new Guid("c43b242a-77ce-4054-b13a-74a600407cb3"), 150.0, "Mer volym för dina fransar", "Volymfransar", "90" },
-                    { new Guid("d41fa439-f74b-497f-838a-c0a89d061f32"), 200.0, "Om du vill ha ont och betala för det", "Massage", "120" }
+                    { new Guid("18ecccf3-7f5a-4619-8e97-4fb7bb2e6326"), 200.0, "Om du vill ha ont och betala för det", "Massage", "120" },
+                    { new Guid("4047ccdb-6e28-4d7a-a86d-d654e29ccd11"), 600.0, "Test1", "Test1", "100" },
+                    { new Guid("88db2293-d067-4e7b-802c-37f83dfb0c3f"), 190.0, "Test2", "Test2", "50" },
+                    { new Guid("a1209a1c-fa0d-48b1-8b02-d0ec41dc4a66"), 300.0, "Manikyr för coola män", "Manikyr", "30" },
+                    { new Guid("c3e7f34b-296f-4901-8d39-20cd4351b0b1"), 22.0, "Nagellack som är coolt", "Nagellack", "60" },
+                    { new Guid("c4a5a7b5-b3d7-49cd-94d6-441c12481522"), 150.0, "Mer volym för dina fransar", "Volymfransar", "90" }
                 });
 
             migrationBuilder.InsertData(

@@ -104,7 +104,9 @@ namespace BeautyNails.Controllers
 
         }
 
-    [HttpGet("GetAllUsers")]
+       
+
+        [HttpGet("GetAllUsers")]
         public async Task<ActionResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
