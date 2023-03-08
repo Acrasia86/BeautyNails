@@ -124,6 +124,15 @@ namespace BeautyNails.Controllers
             return Ok(birthDay);
         }
 
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Id == id);
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
         private UserDto CreateUserObject(AppUser user)
         {
 

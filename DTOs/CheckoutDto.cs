@@ -9,6 +9,7 @@ namespace BeautyNails.DTOs
         public Guid? Id { get; set; }
         public Guid ProductId { get; set; }
         public DateTime? BookedDate { get; set; }
+        public string Email { get; set; }
         [Required]
         public string Address { get; set; } = string.Empty;
         [Required]

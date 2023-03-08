@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautyNails.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230221234408_Initial")]
+    [Migration("20230302175933_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,17 +132,17 @@ namespace BeautyNails.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 22, 0, 44, 8, 172, DateTimeKind.Local).AddTicks(7060),
-                            ConcurrencyStamp = "6977a4da-7942-4dea-98c1-99a7468c627f",
+                            BirthDay = new DateTime(2023, 3, 2, 18, 59, 33, 205, DateTimeKind.Local).AddTicks(4044),
+                            ConcurrencyStamp = "d952e2e9-1548-41b2-8891-15a4eb61cd76",
                             DisplayName = "Jp",
                             Email = "Jacob@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JACOB@MAIL.COM",
                             NormalizedUserName = "JACOB@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE8GmLg983R2u0aiTpm1egvLb+HUU90ehfOTDsUtoWmluAAtZQBY7v3L0tkrpTmylg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEICiM5O4wf65VCJRjN6ywPTxH4dh4VeQM/sZFMMV5t8UvVIvsxP0Vdv/Q+olPNMMMQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ed69676-1f16-4423-8f3a-06c16fa5669a",
+                            SecurityStamp = "9d665d7d-33ca-490a-9e12-1ee0caeaa358",
                             TwoFactorEnabled = false,
                             UserName = "Jacob@mail.com"
                         },
@@ -151,16 +151,16 @@ namespace BeautyNails.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "f21b674b-d099-427b-b876-5568fb89a938",
+                            ConcurrencyStamp = "722d62c7-b050-4da1-bb5d-7e08cf179be3",
                             DisplayName = "Los",
                             Email = "Aleksandra@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ALEKSANDRA@MAIL.COM",
                             NormalizedUserName = "ALEKSANDRA@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEImfkAtVY8rukV9f/PrH6sL3WcxnKagOa/gOj5axwSG8Cb78UAWaWn7Bji0IyfCVug==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN+G6zvPzTaKZ5JJtbwsCcqksQziZ2ecJm+7UKxt6wRndkRgeOTwmhXsVOJHpVkCcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "731a15d8-03de-40b3-b9ea-ee361f8f6726",
+                            SecurityStamp = "df875b4c-4c03-499b-8168-79f20a8f9ff2",
                             TwoFactorEnabled = false,
                             UserName = "Aleksandra@mail.com"
                         },
@@ -169,16 +169,16 @@ namespace BeautyNails.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            ConcurrencyStamp = "6ba34371-3c2d-47d7-9e04-581c4aa0675f",
+                            ConcurrencyStamp = "4cf41aac-9e32-41bb-8e74-759337300244",
                             DisplayName = "User",
                             Email = "User@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@MAIL.COM",
                             NormalizedUserName = "USER@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECl0wiZTKG2TqT0/I7q35kbjgtgrHiBrXaj+jhqSHMxzmo+ldb5Q6Of3Z7WF4bMMgw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGVIoEErU9Vy1oJcIaarIPEaxBj0+4yKnz0sPhGBGkSb7EH4NfpupU3Xv0k0ba3zyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "741059b6-1f90-4141-b3d2-fbbaf68928aa",
+                            SecurityStamp = "bccc3bc6-57d0-405a-80c0-7c42a37f2be1",
                             TwoFactorEnabled = false,
                             UserName = "User@mail.com"
                         },
@@ -187,17 +187,17 @@ namespace BeautyNails.Migrations
                             Id = "4",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ConcurrencyStamp = "f891bb04-6236-4236-bd40-4efa10cde077",
+                            BirthDay = new DateTime(2023, 3, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            ConcurrencyStamp = "f494615c-78f3-42e5-91e5-5ec2987412de",
                             DisplayName = "Henke",
                             Email = "Henrik@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "HENRIK@MAIL.COM",
                             NormalizedUserName = "HENRIK@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAy1wpVLT3RnGnpJMNahGA1lcN8mkEtE/3WsnfYVzhLM92rJ7Di8Ddj6tXkOqlZvzA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL2nC5eS5hkXNsVCj3FjHoT1v93uz9Muutgfh7LMW+vpnPEafTyNNrPQGZezwBS3KA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d567034e-92da-4226-a100-1cb696729ab8",
+                            SecurityStamp = "078d7529-6c9b-4742-a09d-95accb124d25",
                             TwoFactorEnabled = false,
                             UserName = "Henrik@mail.com"
                         },
@@ -206,17 +206,17 @@ namespace BeautyNails.Migrations
                             Id = "5",
                             AccessFailedCount = 0,
                             Bio = "Blabla",
-                            BirthDay = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Local),
-                            ConcurrencyStamp = "6d76f2b1-a549-4bc9-b132-ca742c37c686",
+                            BirthDay = new DateTime(2023, 3, 2, 0, 0, 0, 0, DateTimeKind.Local),
+                            ConcurrencyStamp = "9678d7ff-9ecb-4cdd-88be-bdd285fb70d8",
                             DisplayName = "Kallan",
                             Email = "Kalle@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "KALLE@MAIL.COM",
                             NormalizedUserName = "KALLE@MAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAufgwOcUDrh7Bi/KdacqM9kJLD5jGiGhkaYxybhkj78Cnp3nYEyj8xXXE9bRYEXXQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED8nciejLyogUcxsp746m+Fq5DvxaifQH+TLteVyqMeBmh8fpnILN1I67IWHT61QsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "811bc41e-74ca-4aab-b74b-6055baba66d4",
+                            SecurityStamp = "0ab21d65-1793-4fa2-a70a-93cba89f5530",
                             TwoFactorEnabled = false,
                             UserName = "Kalle@mail.com"
                         });
@@ -308,51 +308,51 @@ namespace BeautyNails.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c3e7f34b-296f-4901-8d39-20cd4351b0b1"),
-                            Price = 22.0,
-                            ProductDescription = "Nagellack som är coolt",
+                            Id = new Guid("66e2be83-e07e-410f-bd8d-683c508d3efb"),
+                            Price = 270.0,
+                            ProductDescription = "Ombre/Fransk",
                             ProductName = "Nagellack",
                             TimeToFinnish = "60"
                         },
                         new
                         {
-                            Id = new Guid("a1209a1c-fa0d-48b1-8b02-d0ec41dc4a66"),
+                            Id = new Guid("ec5099bd-e912-45ee-8aa4-899aa2616659"),
                             Price = 300.0,
-                            ProductDescription = "Manikyr för coola män",
+                            ProductDescription = "Nagelförstärkning med gele eller akryl naturligt utan färg.",
                             ProductName = "Manikyr",
                             TimeToFinnish = "30"
                         },
                         new
                         {
-                            Id = new Guid("c4a5a7b5-b3d7-49cd-94d6-441c12481522"),
+                            Id = new Guid("1a846f5e-70e6-437b-8036-554c7d71793b"),
                             Price = 150.0,
-                            ProductDescription = "Mer volym för dina fransar",
+                            ProductDescription = "Med volym fransar använder man sig av tjocklek 0,07 mm, istället för singelfransar. Tekniken med dessa supertunna fransar, är att du applicerar 2-6 st lösfransar på kundens egen frans, istället för en lösfrans. Denna metod är lika skonsam som vanliga singel fransar eftersom volymfransar är väldigt lätta och tunna fransar.",
                             ProductName = "Volymfransar",
                             TimeToFinnish = "90"
                         },
                         new
                         {
-                            Id = new Guid("18ecccf3-7f5a-4619-8e97-4fb7bb2e6326"),
-                            Price = 200.0,
-                            ProductDescription = "Om du vill ha ont och betala för det",
+                            Id = new Guid("97c977be-8dff-4840-8ee9-06647de95c67"),
+                            Price = 900.0,
+                            ProductDescription = "Massage hjälper kropp och själ att må bra och komma i balans. Våra massageterapeuter har flera års erfarenhet inom branschen och anpassar behandlingarna efter dina önskemål och behov. En massage, oavsett vilken variant du väljer, har en lugnande och avslappnande verkan. Med en massage blir musklerna mjukare, blodcirkulationen i kroppen förbättras och själen får ro. Med regelbunden massage kan man i det flesta fall förebygga muskelspänningar och värk.",
                             ProductName = "Massage",
+                            TimeToFinnish = "80"
+                        },
+                        new
+                        {
+                            Id = new Guid("2bc7da66-bd34-4ea5-8bbb-01ba5a2255f1"),
+                            Price = 2900.0,
+                            ProductDescription = "Vid Microblading skapar man illusionen av ett hårstrå. Med hjälp av ett handverktyg med mikronålar i tatuerar man in pigment som sedan sitter ca 1-3 år, detta är individuellt och beror på flera faktorer som till exempel din hudtyp, din ålder och hur du sköter tatueringen.",
+                            ProductName = "Microblading",
                             TimeToFinnish = "120"
                         },
                         new
                         {
-                            Id = new Guid("4047ccdb-6e28-4d7a-a86d-d654e29ccd11"),
-                            Price = 600.0,
-                            ProductDescription = "Test1",
-                            ProductName = "Test1",
-                            TimeToFinnish = "100"
-                        },
-                        new
-                        {
-                            Id = new Guid("88db2293-d067-4e7b-802c-37f83dfb0c3f"),
-                            Price = 190.0,
-                            ProductDescription = "Test2",
-                            ProductName = "Test2",
-                            TimeToFinnish = "50"
+                            Id = new Guid("5b9dc23c-89fd-4012-b93f-d0b67e6073ed"),
+                            Price = 450.0,
+                            ProductDescription = "Fixa fötterna",
+                            ProductName = "Pedikyr",
+                            TimeToFinnish = "30"
                         });
                 });
 

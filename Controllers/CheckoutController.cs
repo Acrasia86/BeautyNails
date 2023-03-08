@@ -54,7 +54,12 @@ namespace BeautyNails.Controllers
             }
             
             var checkout = _mapper.Map<Checkout>(checkoutDto);
-            checkout.User = _userManager.FindByEmailAsync(User.Identity.Name).Result;
+            //checkout.User = _userManager.FindByEmailAsync(User.Identity.Name).Result;
+            checkout.User = _userManager.Users.FirstOrDefault(x => x.Email == checkoutDto.Email);
+            if (checkout.User == null)
+            {
+                return NotFound();
+            }
 
             await _context.CheckOut.AddAsync(checkout);
             await _context.SaveChangesAsync();
